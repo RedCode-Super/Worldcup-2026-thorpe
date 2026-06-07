@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Cup Sweepstake 2026</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="pride-bar" aria-hidden="true"></div>
+    <header>
+      <div class="header-top">
+        <h1>⚽ World Cup Sweepstake 🏳️‍🌈🏳️‍⚧️</h1>
+        <span class="badge">2026</span>
+        <div class="header-actions">
+          <span class="last-updated" id="lastUpdated"></span>
+          <button class="refresh-btn" id="refreshBtn" title="Refresh data">↻ Refresh</button>
+          <button class="theme-btn" id="themeBtn" title="Toggle dark mode">🌙</button>
+        </div>
+      </div>
+      <nav>
+        <button data-tab="sweepstake" class="active">Sweepstake</button>
+        <button data-tab="groups">Groups</button>
+        <button data-tab="fixtures">Fixtures</button>
+        <button data-tab="tv">On TV</button>
+        <button data-tab="knockout">Knockout</button>
+      </nav>
+    </header>
+
+    <main>
+      <div id="content">
+        <div class="state-msg">
+          <div class="spinner"></div>
+          <p>Loading…</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
