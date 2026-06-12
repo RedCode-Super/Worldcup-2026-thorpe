@@ -2,10 +2,11 @@ name: Fetch World Cup Scores
 
 on:
   schedule:
-    # Once daily at 06:07 UTC = 07:07 BST. Seven minutes past the hour
-    # because GitHub most often delays/drops top-of-hour scheduled runs,
-    # and with a single daily run a dropped one means no scores for 24h.
-    - cron: "7 6 * * *"
+    # Once daily at 06:45 UTC = 07:45 BST. Off the top of the hour because
+    # GitHub most often delays/drops top-of-hour scheduled runs, and late
+    # enough that the 04:00 UTC (US west coast) kickoffs — which can run to
+    # ~06:15 with stoppage time — are guaranteed finished before we fetch.
+    - cron: "45 6 * * *"
   workflow_dispatch:
 
 jobs:
@@ -40,11 +41,26 @@ jobs:
               {
                 homeTeam: { name: $home.team.displayName },
                 awayTeam: { name: $away.team.displayName },
+                stage: ({
+                  "group-stage":     "GROUP_STAGE",
+                  "round-of-32":     "ROUND_OF_32",
+                  "round-of-16":     "LAST_16",
+                  "quarterfinals":   "QUARTER_FINALS",
+                  "semifinals":      "SEMI_FINALS",
+                  "3rd-place-match": "THIRD_PLACE",
+                  "final":           "FINAL"
+                }[.season.slug] // "GROUP_STAGE"),
                 score: {
                   fullTime: {
                     home: (if $c.status.type.completed then ($home.score | tonumber) else null end),
                     away: (if $c.status.type.completed then ($away.score | tonumber) else null end)
-                  }
+                  },
+                  penalties: (
+                    if $home.shootoutScore != null and $away.shootoutScore != null
+                    then { home: ($home.shootoutScore | tonumber), away: ($away.shootoutScore | tonumber) }
+                    else null
+                    end
+                  )
                 },
                 status: (if $c.status.type.completed then "FINISHED" else "SCHEDULED" end),
                 utcDate: .date

@@ -10,10 +10,13 @@ function getTeamStatus(teamName, matches, standings) {
     const pen   = finalMatch.score?.penalties ?? {};
     const homeTotal = (score.home ?? 0) + (pen.home ?? 0);
     const awayTotal = (score.away ?? 0) + (pen.away ?? 0);
-    const winner = homeTotal > awayTotal
-      ? normaliseTeamName(finalMatch.homeTeam?.name)
-      : normaliseTeamName(finalMatch.awayTeam?.name);
-    if (winner === teamName) return "champion";
+    // Equal totals means we don't have shootout data — don't guess a winner
+    if (homeTotal !== awayTotal) {
+      const winner = homeTotal > awayTotal
+        ? normaliseTeamName(finalMatch.homeTeam?.name)
+        : normaliseTeamName(finalMatch.awayTeam?.name);
+      if (winner === teamName) return "champion";
+    }
   }
 
   // Check if eliminated: played in a knockout match they lost
@@ -29,6 +32,7 @@ function getTeamStatus(teamName, matches, standings) {
     const pen   = m.score?.penalties ?? {};
     const homeTotal = (score.home ?? 0) + (pen.home ?? 0);
     const awayTotal = (score.away ?? 0) + (pen.away ?? 0);
+    if (homeTotal === awayTotal) continue; // no shootout data — can't tell who went out
     const loser = homeTotal > awayTotal ? away : home;
     if (loser === teamName && m.stage !== "THIRD_PLACE") return "eliminated";
   }

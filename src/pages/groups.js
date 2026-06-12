@@ -12,6 +12,7 @@ function calcGroupStandings(teams, matches) {
   }
   for (const f of source) {
     if (f.status !== "FINISHED") continue;
+    if (f.stage && f.stage !== "GROUP_STAGE") continue; // knockout rematches don't count
     const home = normaliseTeamName(f.homeTeam.name);
     const away = normaliseTeamName(f.awayTeam.name);
     if (!stats[home] || !stats[away]) continue;

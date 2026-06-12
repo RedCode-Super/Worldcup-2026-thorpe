@@ -12,11 +12,20 @@ import { normaliseTeamName } from "./sweepstake.js";
 const CACHE_TTL_MS = 5 * 60_000; // 5 min session cache
 
 // Overlay ESPN results onto the full static schedule, matching fixtures by
-// (home, away) team names. Live-only matches with no static counterpart
-// (e.g. future knockout ties) are appended so nothing is lost.
+// (day, home, away). The day is part of the key so a knockout rematch of a
+// group pairing can't overwrite the group fixture's score. Live-only matches
+// with no static counterpart (knockout ties) are appended once both teams
+// are decided — ESPN lists undecided ties with placeholder "teams" like
+// "Group A Winner", which we skip rather than render.
 function mergeFixtures(espnMatches) {
-  const keyOf = m => `${normaliseTeamName(m.homeTeam?.name ?? "")}|${normaliseTeamName(m.awayTeam?.name ?? "")}`;
+  const keyOf = m => `${(m.utcDate ?? "").slice(0, 10)}|${normaliseTeamName(m.homeTeam?.name ?? "")}|${normaliseTeamName(m.awayTeam?.name ?? "")}`;
   const liveByKey = new Map((espnMatches ?? []).map(m => [keyOf(m), m]));
+
+  const realTeams = new Set();
+  for (const f of STATIC_FIXTURES) {
+    realTeams.add(normaliseTeamName(f.homeTeam.name));
+    realTeams.add(normaliseTeamName(f.awayTeam.name));
+  }
 
   const merged = STATIC_FIXTURES.map(f => {
     const lm = liveByKey.get(keyOf(f));
@@ -24,7 +33,11 @@ function mergeFixtures(espnMatches) {
     liveByKey.delete(keyOf(f));
     return { ...f, status: lm.status ?? f.status, score: lm.score ?? f.score, minute: lm.minute };
   });
-  for (const lm of liveByKey.values()) merged.push(lm); // unmatched (knockouts etc.)
+  for (const lm of liveByKey.values()) {
+    const home = normaliseTeamName(lm.homeTeam?.name ?? "");
+    const away = normaliseTeamName(lm.awayTeam?.name ?? "");
+    if (realTeams.has(home) && realTeams.has(away)) merged.push(lm);
+  }
   return merged;
 }
 
