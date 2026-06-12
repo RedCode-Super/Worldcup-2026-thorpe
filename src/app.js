@@ -1,4 +1,5 @@
 import { init, subscribe, forceRefresh } from "./data/store.js";
+import { esc } from "./utils.js";
 import { renderGroupsPage }     from "./pages/groups.js";
 import { renderFixturesPage, resetFixturesFilter } from "./pages/fixtures.js";
 import { renderKnockoutPage }   from "./pages/knockout.js";
@@ -8,10 +9,11 @@ import { renderTvPage, resetTvFilter } from "./pages/tv.js";
 const TABS = ["groups", "fixtures", "knockout", "sweepstake"];
 
 let _activeTab = "sweepstake";
-let _state     = { standings: null, matches: null, error: null, loading: true };
+let _state     = { matches: null, error: null, loading: true };
 
 // ── DOM refs ────────────────────────────────────────────────────
 const mainEl        = document.getElementById("content");
+const errorBannerEl = document.getElementById("errorBanner");
 const navBtns       = document.querySelectorAll("nav [data-tab]");
 const refreshBtn    = document.getElementById("refreshBtn");
 const lastUpdatedEl = document.getElementById("lastUpdated");
@@ -54,59 +56,37 @@ function loadingHtml() {
   return `<div class="state-msg"><div class="spinner"></div><p>Loading match data…</p></div>`;
 }
 
-function errorHtml(err) {
-  if (err === "standings_not_found" || err === "matches_not_found") {
-    return `
-      <div class="state-msg">
-        <h3>Data not available yet</h3>
-        <p>The GitHub Actions workflow hasn't run yet. Go to your repo → Actions → <strong>Fetch World Cup Data</strong> → Run workflow to fetch data for the first time.</p>
-      </div>`;
-  }
-  if (err.startsWith("api_error:403")) {
-    return `
-      <div class="state-msg">
-        <h3>API subscription required</h3>
-        <p>Your football-data.org plan doesn't include World Cup 2026 data yet. Check your subscription at football-data.org. The Sweepstake tab still works!</p>
-      </div>`;
-  }
+// Every tab renders from the static schedule when live data is missing, so
+// an error never blocks a tab — it shows as a banner above the content.
+function errorBannerHtml(err) {
+  const friendly = err === "matches_not_found"
+    ? "Match data hasn't been published yet — the score-fetch workflow may not have run."
+    : "Couldn't load live scores — showing the schedule without results. Try ↻ Refresh.";
   return `
-    <div class="state-msg">
-      <h3>Something went wrong</h3>
-      <p>${err}</p>
+    <div class="error-banner">
+      <span>⚠️ ${friendly}</span>
+      <span class="error-detail">${esc(err)}</span>
     </div>`;
 }
 
 function renderCurrentTab() {
-  const { standings, matches, error, loading } = _state;
+  const { matches, error, loading } = _state;
 
+  if (errorBannerEl) errorBannerEl.innerHTML = (!loading && error) ? errorBannerHtml(error) : "";
   if (loading) { mainEl.innerHTML = loadingHtml(); return; }
 
-  // Groups and Sweepstake have hardcoded fallback data — render regardless of API state
-  if (_activeTab === "sweepstake") {
-    mainEl.innerHTML = renderSweepstakePage(matches, standings);
-    return;
-  }
-  if (_activeTab === "groups") {
-    mainEl.innerHTML = renderGroupsPage(standings, matches);
-    return;
-  }
-  if (_activeTab === "fixtures") {
-    renderFixturesPage(matches, mainEl);
-    return;
-  }
-  if (_activeTab === "tv") {
-    renderTvPage(matches, mainEl);
-    return;
-  }
-
-  if (error) { mainEl.innerHTML = errorHtml(error); return; }
-
   switch (_activeTab) {
+    case "sweepstake":
+      mainEl.innerHTML = renderSweepstakePage(matches);
+      break;
     case "groups":
-      mainEl.innerHTML = renderGroupsPage(standings, matches);
+      mainEl.innerHTML = renderGroupsPage(matches);
       break;
     case "fixtures":
       renderFixturesPage(matches, mainEl);
+      break;
+    case "tv":
+      renderTvPage(matches, mainEl);
       break;
     case "knockout":
       mainEl.innerHTML = renderKnockoutPage(matches);

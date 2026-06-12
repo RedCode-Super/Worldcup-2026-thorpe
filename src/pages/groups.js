@@ -46,49 +46,6 @@ function positionClass(pos, total) {
   return "";
 }
 
-function renderStandingsRow(entry) {
-  const team  = normaliseTeamName(entry.team.name);
-  const owner = findPlayerForTeam(team);
-  const s     = entry.statistics ?? entry;
-
-  return `
-    <tr class="${positionClass(entry.position, 4)}">
-      <td>
-        <div class="team-cell">
-          <span class="team-flag">${flag(team)}</span>
-          <span>${esc(team)}</span>
-          ${owner ? `<span class="owner-tag">${esc(owner)}</span>` : ""}
-        </div>
-      </td>
-      <td>${s.playedGames ?? 0}</td>
-      <td>${s.won ?? 0}</td>
-      <td>${s.draw ?? 0}</td>
-      <td>${s.lost ?? 0}</td>
-      <td>${s.goalsFor ?? 0}</td>
-      <td>${s.goalsAgainst ?? 0}</td>
-      <td>${s.goalDifference ?? 0}</td>
-      <td class="pts">${s.points ?? 0}</td>
-    </tr>`;
-}
-
-function renderGroup(group) {
-  const rows = (group.table ?? []).map(renderStandingsRow).join("");
-  return `
-    <div class="card">
-      <div class="card-header">Group ${esc(group.group ?? group.stage)}</div>
-      <table class="standings-table">
-        <thead>
-          <tr>
-            <th>Team</th>
-            <th>P</th><th>W</th><th>D</th><th>L</th>
-            <th>GF</th><th>GA</th><th>GD</th><th>Pts</th>
-          </tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>`;
-}
-
 function renderLegend() {
   return `
     <div class="legend">
@@ -97,7 +54,7 @@ function renderLegend() {
     </div>`;
 }
 
-function renderStaticGroup(group, matches) {
+function renderGroup(group, matches) {
   const table = calcGroupStandings(group.teams, matches);
   const rows = table.map((entry, i) => {
     const owner = findPlayerForTeam(entry.team);
@@ -138,10 +95,6 @@ function renderStaticGroup(group, matches) {
     </div>`;
 }
 
-export function renderGroupsPage(standings, matches) {
-  if (!standings || standings.length === 0) {
-    return renderLegend() + STATIC_GROUPS.map(g => renderStaticGroup(g, matches)).join("");
-  }
-  const groups = standings.filter(s => s.type === "TOTAL" || s.stage === "GROUP_STAGE");
-  return renderLegend() + groups.map(renderGroup).join("");
+export function renderGroupsPage(matches) {
+  return renderLegend() + STATIC_GROUPS.map(g => renderGroup(g, matches)).join("");
 }

@@ -41,40 +41,42 @@ function mergeFixtures(espnMatches) {
   return merged;
 }
 
-let _standings = null;
 let _matches   = null;
 let _error     = null;
 let _loading   = true;
 let _fetchedAt = null;
 const _listeners = new Set();
 
+// Bump the version segment whenever the cached data shape changes, so a
+// deploy never feeds old-shape cache to new code.
+const CACHE_KEY = "wc_matches_v2";
+const OLD_CACHE_KEYS = ["wc_matches", "wc_standings"];
+
 function notify() {
-  _listeners.forEach(fn => fn({ standings: _standings, matches: _matches, error: _error, loading: _loading, fetchedAt: _fetchedAt }));
+  _listeners.forEach(fn => fn({ matches: _matches, error: _error, loading: _loading, fetchedAt: _fetchedAt }));
 }
 
 export function subscribe(fn) {
   _listeners.add(fn);
-  fn({ standings: _standings, matches: _matches, error: _error, loading: _loading, fetchedAt: _fetchedAt });
+  fn({ matches: _matches, error: _error, loading: _loading, fetchedAt: _fetchedAt });
   return () => _listeners.delete(fn);
 }
 
 export function getState() {
-  return { standings: _standings, matches: _matches, error: _error, loading: _loading, fetchedAt: _fetchedAt };
+  return { matches: _matches, error: _error, loading: _loading, fetchedAt: _fetchedAt };
 }
 
-function saveCache(s, m) {
+function saveCache(m) {
   try {
-    sessionStorage.setItem("wc_standings", JSON.stringify({ data: s, at: Date.now() }));
-    sessionStorage.setItem("wc_matches",   JSON.stringify({ data: m, at: Date.now() }));
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data: m, at: Date.now() }));
   } catch {}
 }
 
 function loadCache() {
   try {
-    const sc = JSON.parse(sessionStorage.getItem("wc_standings") ?? "null");
-    const mc = JSON.parse(sessionStorage.getItem("wc_matches")   ?? "null");
-    if (sc && mc && (Date.now() - sc.at) < CACHE_TTL_MS) {
-      return { standings: sc.data, matches: mc.data, at: sc.at };
+    const mc = JSON.parse(sessionStorage.getItem(CACHE_KEY) ?? "null");
+    if (mc && (Date.now() - mc.at) < CACHE_TTL_MS) {
+      return { matches: mc.data, at: mc.at };
     }
   } catch {}
   return null;
@@ -84,10 +86,9 @@ async function doFetch() {
   try {
     const m = await fetchMatches();
     _matches   = mergeFixtures(m.matches ?? m);
-    _standings = null; // computed from matches in pages/groups.js
     _fetchedAt = Date.now();
     _error     = null;
-    saveCache(_standings, _matches);
+    saveCache(_matches);
   } catch (e) {
     _error = e.message;
   }
@@ -96,9 +97,9 @@ async function doFetch() {
 }
 
 export function init() {
+  try { OLD_CACHE_KEYS.forEach(k => sessionStorage.removeItem(k)); } catch {}
   const cached = loadCache();
   if (cached) {
-    _standings = cached.standings;
     _matches   = cached.matches;
     _fetchedAt = cached.at;
     _loading   = false;
@@ -109,8 +110,7 @@ export function init() {
 }
 
 export function forceRefresh() {
-  sessionStorage.removeItem("wc_standings");
-  sessionStorage.removeItem("wc_matches");
+  sessionStorage.removeItem(CACHE_KEY);
   _loading = true;
   notify();
   doFetch();

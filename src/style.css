@@ -357,6 +357,14 @@ main { flex: 1; max-width: 900px; width: 100%; margin: 0 auto; padding: 20px 16p
 }
 
 /* ─── Error / loading ──────────────────────────────────────── */
+.error-banner {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
+  margin-bottom: 16px; padding: 10px 14px;
+  background: color-mix(in srgb, var(--amber) 12%, transparent);
+  border: 1px solid var(--amber); border-radius: 8px;
+  color: var(--text); font-size: .85rem;
+}
+.error-banner .error-detail { color: var(--text-dim); font-size: .72rem; }
 .state-msg { text-align: center; padding: 60px 20px; color: var(--text-dim); }
 .state-msg h3 { font-size: 1rem; margin-bottom: 6px; color: var(--text-muted); }
 .state-msg p  { font-size: .85rem; }

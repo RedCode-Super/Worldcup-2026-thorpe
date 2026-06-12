@@ -2,7 +2,7 @@ import { flag } from "../components/flags.js";
 import { SWEEPSTAKE, normaliseTeamName } from "../data/sweepstake.js";
 import { esc } from "../utils.js";
 
-function getTeamStatus(teamName, matches, standings) {
+function getTeamStatus(teamName, matches) {
   // Check if champion (won the final)
   const finalMatch = (matches ?? []).find(m => m.stage === "FINAL" && m.status === "FINISHED");
   if (finalMatch) {
@@ -64,9 +64,9 @@ function aliveClass(alive, total) {
   return "some";
 }
 
-export function renderSweepstakePage(matches, standings) {
+export function renderSweepstakePage(matches) {
   const cards = SWEEPSTAKE.map(({ player, teams }) => {
-    const statuses = teams.map(t => getTeamStatus(t, matches, standings));
+    const statuses = teams.map(t => getTeamStatus(t, matches));
     const alive = statuses.filter(s => s !== "eliminated").length;
 
     return `
