@@ -87,7 +87,7 @@ function renderCurrentTab() {
     return;
   }
   if (_activeTab === "groups") {
-    mainEl.innerHTML = renderGroupsPage(standings);
+    mainEl.innerHTML = renderGroupsPage(standings, matches);
     return;
   }
   if (_activeTab === "fixtures") {
@@ -103,7 +103,7 @@ function renderCurrentTab() {
 
   switch (_activeTab) {
     case "groups":
-      mainEl.innerHTML = renderGroupsPage(standings);
+      mainEl.innerHTML = renderGroupsPage(standings, matches);
       break;
     case "fixtures":
       renderFixturesPage(matches, mainEl);

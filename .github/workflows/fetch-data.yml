@@ -1,8 +1,11 @@
-name: Fetch World Cup Data
+name: Fetch World Cup Scores
 
 on:
   schedule:
-    - cron: "*/45 * * * *"
+    # 4×/day, off-the-hour. GitHub frequently delays/drops top-of-hour
+    # scheduled runs, so spread them out — a dropped run is covered by the
+    # next one. Times in UTC.
+    - cron: "17 6,12,18,22 * * *"
   workflow_dispatch:
 
 jobs:
@@ -10,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - uses: actions/checkout@v4
@@ -19,26 +20,44 @@ jobs:
       - name: Ensure data directory exists
         run: mkdir -p data
 
-      - name: Fetch standings
+      - name: Fetch scores from ESPN
         run: |
-          curl -s \
-            -H "X-Auth-Token: ${{ secrets.FOOTBALL_API_KEY }}" \
-            "https://api.football-data.org/v4/competitions/WC/standings" \
-            -o data/standings.json
-          echo "Standings fetched"
+          TODAY=$(date -u +%Y%m%d)
+          HTTP_STATUS=$(curl -s -o /tmp/espn_raw.json -w "%{http_code}" \
+            "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?limit=200&dates=20260611-${TODAY}")
 
-      - name: Fetch matches
-        run: |
-          curl -s \
-            -H "X-Auth-Token: ${{ secrets.FOOTBALL_API_KEY }}" \
-            "https://api.football-data.org/v4/competitions/WC/matches" \
-            -o data/matches.json
-          echo "Matches fetched"
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "ESPN API returned HTTP $HTTP_STATUS — skipping update"
+            exit 0
+          fi
+
+          jq '{
+            matches: [
+              .events[]? |
+              .competitions[0] as $c |
+              ($c.competitors[]? | select(.homeAway == "home")) as $home |
+              ($c.competitors[]? | select(.homeAway == "away")) as $away |
+              {
+                homeTeam: { name: $home.team.displayName },
+                awayTeam: { name: $away.team.displayName },
+                score: {
+                  fullTime: {
+                    home: (if $c.status.type.completed then ($home.score | tonumber) else null end),
+                    away: (if $c.status.type.completed then ($away.score | tonumber) else null end)
+                  }
+                },
+                status: (if $c.status.type.completed then "FINISHED" else "SCHEDULED" end),
+                utcDate: .date
+              }
+            ]
+          }' /tmp/espn_raw.json > data/matches.json
+
+          echo "Saved $(jq '.matches | length' data/matches.json) matches"
 
       - name: Commit updated data
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/standings.json data/matches.json
-          git diff --cached --quiet || git commit -m "chore: update match data [skip ci]"
+          git add data/matches.json
+          git diff --cached --quiet || git commit -m "chore: update scores [skip ci]"
           git push

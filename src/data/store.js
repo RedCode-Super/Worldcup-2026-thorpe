@@ -1,8 +1,32 @@
-// Loads static JSON files written by GitHub Actions (runs every 45 min).
+// Loads the static matches.json written by GitHub Actions (runs nightly).
+// ESPN's feed only covers a rolling date window, so we overlay its scores
+// onto the full hardcoded schedule (STATIC_FIXTURES) — that way every page
+// shows the complete fixture list with live results merged in.
+// Group standings are computed client-side from matches (see pages/groups.js),
+// so there is no separate standings feed to fetch.
 // Caches in sessionStorage so page navigations don't re-fetch.
-import { fetchStandings, fetchMatches } from "./api.js";
+import { fetchMatches } from "./api.js";
+import { STATIC_FIXTURES } from "./fixtures-static.js";
+import { normaliseTeamName } from "./sweepstake.js";
 
-const CACHE_TTL_MS = 5 * 60_000; // 5 min session cache (GH Actions updates every 45 min)
+const CACHE_TTL_MS = 5 * 60_000; // 5 min session cache
+
+// Overlay ESPN results onto the full static schedule, matching fixtures by
+// (home, away) team names. Live-only matches with no static counterpart
+// (e.g. future knockout ties) are appended so nothing is lost.
+function mergeFixtures(espnMatches) {
+  const keyOf = m => `${normaliseTeamName(m.homeTeam?.name ?? "")}|${normaliseTeamName(m.awayTeam?.name ?? "")}`;
+  const liveByKey = new Map((espnMatches ?? []).map(m => [keyOf(m), m]));
+
+  const merged = STATIC_FIXTURES.map(f => {
+    const lm = liveByKey.get(keyOf(f));
+    if (!lm) return f;
+    liveByKey.delete(keyOf(f));
+    return { ...f, status: lm.status ?? f.status, score: lm.score ?? f.score, minute: lm.minute };
+  });
+  for (const lm of liveByKey.values()) merged.push(lm); // unmatched (knockouts etc.)
+  return merged;
+}
 
 let _standings = null;
 let _matches   = null;
@@ -45,9 +69,9 @@ function loadCache() {
 
 async function doFetch() {
   try {
-    const [s, m] = await Promise.all([fetchStandings(), fetchMatches()]);
-    _standings = s.standings ?? s;
-    _matches   = m.matches   ?? m;
+    const m = await fetchMatches();
+    _matches   = mergeFixtures(m.matches ?? m);
+    _standings = null; // computed from matches in pages/groups.js
     _fetchedAt = Date.now();
     _error     = null;
     saveCache(_standings, _matches);
