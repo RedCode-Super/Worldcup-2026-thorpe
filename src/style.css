@@ -108,19 +108,6 @@ body { background: var(--bg); color: var(--text); min-height: 100vh; transition:
 /* ─── App shell ────────────────────────────────────────────── */
 #app { display: flex; flex-direction: column; min-height: 100vh; }
 
-/* ─── Pride bar ─────────────────────────────────────────────── */
-.pride-bar {
-  height: 5px;
-  background: linear-gradient(to right,
-    #E40303 0%   16.66%,
-    #FF8C00 16.66% 33.33%,
-    #FFED00 33.33% 50%,
-    #008026 50%   66.66%,
-    #004DFF 66.66% 83.33%,
-    #750787 83.33% 100%
-  );
-}
-
 header {
   background: var(--header-grad);
   color: #fff;
