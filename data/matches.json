@@ -1,1 +1,68 @@
-{"message":"The resource you are looking for is restricted and apparently not within your permissions. Please check your subscription.","errorCode":403}
+{
+  "matches": [
+    {
+      "homeTeam": {
+        "name": "Mexico"
+      },
+      "awayTeam": {
+        "name": "South Africa"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        }
+      },
+      "status": "FINISHED",
+      "utcDate": "2026-06-11T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "South Korea"
+      },
+      "awayTeam": {
+        "name": "Czechia"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        }
+      },
+      "status": "FINISHED",
+      "utcDate": "2026-06-12T02:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Canada"
+      },
+      "awayTeam": {
+        "name": "Bosnia-Herzegovina"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-12T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "United States"
+      },
+      "awayTeam": {
+        "name": "Paraguay"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-13T01:00Z"
+    }
+  ]
+}
