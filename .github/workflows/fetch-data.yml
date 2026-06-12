@@ -2,10 +2,10 @@ name: Fetch World Cup Scores
 
 on:
   schedule:
-    # 4×/day, off-the-hour. GitHub frequently delays/drops top-of-hour
-    # scheduled runs, so spread them out — a dropped run is covered by the
-    # next one. Times in UTC.
-    - cron: "17 6,12,18,22 * * *"
+    # Once daily at 06:07 UTC = 07:07 BST. Seven minutes past the hour
+    # because GitHub most often delays/drops top-of-hour scheduled runs,
+    # and with a single daily run a dropped one means no scores for 24h.
+    - cron: "7 6 * * *"
   workflow_dispatch:
 
 jobs:
