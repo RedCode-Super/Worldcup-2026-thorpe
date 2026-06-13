@@ -7,11 +7,13 @@
       "awayTeam": {
         "name": "South Africa"
       },
+      "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
           "home": 2,
           "away": 0
-        }
+        },
+        "penalties": null
       },
       "status": "FINISHED",
       "utcDate": "2026-06-11T19:00Z"
@@ -23,11 +25,13 @@
       "awayTeam": {
         "name": "Czechia"
       },
+      "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
           "home": 2,
           "away": 1
-        }
+        },
+        "penalties": null
       },
       "status": "FINISHED",
       "utcDate": "2026-06-12T02:00Z"
@@ -39,13 +43,15 @@
       "awayTeam": {
         "name": "Bosnia-Herzegovina"
       },
+      "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
-        }
+          "home": 1,
+          "away": 1
+        },
+        "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-12T19:00Z"
     },
     {
@@ -55,14 +61,70 @@
       "awayTeam": {
         "name": "Paraguay"
       },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": 4,
+          "away": 1
+        },
+        "penalties": null
+      },
+      "status": "FINISHED",
+      "utcDate": "2026-06-13T01:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Qatar"
+      },
+      "awayTeam": {
+        "name": "Switzerland"
+      },
+      "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
           "home": null,
           "away": null
-        }
+        },
+        "penalties": null
       },
       "status": "SCHEDULED",
-      "utcDate": "2026-06-13T01:00Z"
+      "utcDate": "2026-06-13T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Brazil"
+      },
+      "awayTeam": {
+        "name": "Morocco"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-13T22:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Haiti"
+      },
+      "awayTeam": {
+        "name": "Scotland"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-14T01:00Z"
     }
   ]
 }
