@@ -226,12 +226,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-15T16:00Z"
     },
     {
@@ -244,12 +244,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-15T19:00Z"
     },
     {
@@ -262,12 +262,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-15T22:00Z"
     },
     {
@@ -280,13 +280,67 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
+          "home": 2,
+          "away": 2
+        },
+        "penalties": null
+      },
+      "status": "FINISHED",
+      "utcDate": "2026-06-16T01:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "France"
+      },
+      "awayTeam": {
+        "name": "Senegal"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
           "home": null,
           "away": null
         },
         "penalties": null
       },
       "status": "SCHEDULED",
-      "utcDate": "2026-06-16T01:00Z"
+      "utcDate": "2026-06-16T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Iraq"
+      },
+      "awayTeam": {
+        "name": "Norway"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-16T22:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Argentina"
+      },
+      "awayTeam": {
+        "name": "Algeria"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-17T01:00Z"
     }
   ]
 }
