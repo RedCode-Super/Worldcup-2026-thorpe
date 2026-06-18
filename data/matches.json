@@ -370,12 +370,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-17T17:00Z"
     },
     {
@@ -388,12 +388,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 4,
+          "away": 2
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-17T20:00Z"
     },
     {
@@ -406,12 +406,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-17T23:00Z"
     },
     {
@@ -424,13 +424,85 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
+          "home": 1,
+          "away": 3
+        },
+        "penalties": null
+      },
+      "status": "FINISHED",
+      "utcDate": "2026-06-18T02:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Czechia"
+      },
+      "awayTeam": {
+        "name": "South Africa"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
           "home": null,
           "away": null
         },
         "penalties": null
       },
       "status": "SCHEDULED",
-      "utcDate": "2026-06-18T02:00Z"
+      "utcDate": "2026-06-18T16:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Switzerland"
+      },
+      "awayTeam": {
+        "name": "Bosnia-Herzegovina"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-18T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Canada"
+      },
+      "awayTeam": {
+        "name": "Qatar"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-18T22:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Mexico"
+      },
+      "awayTeam": {
+        "name": "South Korea"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-19T01:00Z"
     }
   ]
 }
