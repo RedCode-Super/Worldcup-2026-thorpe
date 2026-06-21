@@ -586,12 +586,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 5,
+          "away": 1
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-20T17:00Z"
     },
     {
@@ -604,12 +604,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-20T20:00Z"
     },
     {
@@ -622,13 +622,103 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalties": null
+      },
+      "status": "FINISHED",
+      "utcDate": "2026-06-21T00:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Tunisia"
+      },
+      "awayTeam": {
+        "name": "Japan"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 4
+        },
+        "penalties": null
+      },
+      "status": "FINISHED",
+      "utcDate": "2026-06-21T04:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Spain"
+      },
+      "awayTeam": {
+        "name": "Saudi Arabia"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
           "home": null,
           "away": null
         },
         "penalties": null
       },
       "status": "SCHEDULED",
-      "utcDate": "2026-06-21T00:00Z"
+      "utcDate": "2026-06-21T16:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Belgium"
+      },
+      "awayTeam": {
+        "name": "Iran"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-21T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Uruguay"
+      },
+      "awayTeam": {
+        "name": "Cape Verde"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-21T22:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "New Zealand"
+      },
+      "awayTeam": {
+        "name": "Egypt"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-22T01:00Z"
     }
   ]
 }
