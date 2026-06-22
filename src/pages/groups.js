@@ -2,43 +2,7 @@ import { flag } from "../components/flags.js";
 import { normaliseTeamName, findPlayerForTeam } from "../data/sweepstake.js";
 import { esc } from "../utils.js";
 import { STATIC_GROUPS } from "../data/groups-static.js";
-import { STATIC_FIXTURES } from "../data/fixtures-static.js";
-
-function calcGroupStandings(teams, matches) {
-  const source = matches ?? STATIC_FIXTURES;
-  const stats = {};
-  for (const t of teams) {
-    stats[t] = { team: t, p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 };
-  }
-  for (const f of source) {
-    if (f.status !== "FINISHED") continue;
-    if (f.stage && f.stage !== "GROUP_STAGE") continue; // knockout rematches don't count
-    const home = normaliseTeamName(f.homeTeam.name);
-    const away = normaliseTeamName(f.awayTeam.name);
-    if (!stats[home] || !stats[away]) continue;
-    const hg = f.score.fullTime.home;
-    const ag = f.score.fullTime.away;
-    if (hg === null || ag === null) continue;
-    stats[home].p++; stats[away].p++;
-    stats[home].gf += hg; stats[home].ga += ag;
-    stats[away].gf += ag; stats[away].ga += hg;
-    if (hg > ag) {
-      stats[home].w++; stats[home].pts += 3; stats[away].l++;
-    } else if (ag > hg) {
-      stats[away].w++; stats[away].pts += 3; stats[home].l++;
-    } else {
-      stats[home].d++; stats[home].pts++;
-      stats[away].d++; stats[away].pts++;
-    }
-  }
-  return Object.values(stats).sort((a, b) => {
-    if (b.pts !== a.pts) return b.pts - a.pts;
-    const gdA = a.gf - a.ga, gdB = b.gf - b.ga;
-    if (gdB !== gdA) return gdB - gdA;
-    if (b.gf !== a.gf) return b.gf - a.gf;
-    return a.team.localeCompare(b.team);
-  });
-}
+import { calcGroupStandings } from "../data/standings.js";
 
 function positionClass(pos, total) {
   if (pos <= 2) return "qualify-auto";

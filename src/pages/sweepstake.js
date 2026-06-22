@@ -1,8 +1,9 @@
 import { flag } from "../components/flags.js";
 import { SWEEPSTAKE, normaliseTeamName } from "../data/sweepstake.js";
 import { esc } from "../utils.js";
+import { getEliminatedTeams } from "../data/standings.js";
 
-function getTeamStatus(teamName, matches) {
+function getTeamStatus(teamName, matches, groupStageEliminated) {
   // Check if champion (won the final)
   const finalMatch = (matches ?? []).find(m => m.stage === "FINAL" && m.status === "FINISHED");
   if (finalMatch) {
@@ -37,9 +38,11 @@ function getTeamStatus(teamName, matches) {
     if (loser === teamName && m.stage !== "THIRD_PLACE") return "eliminated";
   }
 
-  // Check group stage elimination (finished group, not in top 2 or advancing 3rd)
-  // This is complex — we'll just mark as "active" if they had group matches
-  // and let the knockout check handle actual elimination
+  // Group stage elimination: bottom 2 of group, or a 3rd-place finisher that
+  // misses the best-8 cutoff. Only populated once all 12 groups have
+  // finished — see getEliminatedTeams in data/standings.js.
+  if (groupStageEliminated.has(teamName)) return "eliminated";
+
   return "active";
 }
 
@@ -65,8 +68,9 @@ function aliveClass(alive, total) {
 }
 
 export function renderSweepstakePage(matches) {
+  const groupStageEliminated = getEliminatedTeams(matches);
   const cards = SWEEPSTAKE.map(({ player, teams }) => {
-    const statuses = teams.map(t => getTeamStatus(t, matches));
+    const statuses = teams.map(t => getTeamStatus(t, matches, groupStageEliminated));
     const alive = statuses.filter(s => s !== "eliminated").length;
 
     return `
