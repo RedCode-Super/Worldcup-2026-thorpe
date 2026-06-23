@@ -730,12 +730,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 0
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-22T17:00Z"
     },
     {
@@ -748,12 +748,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 0
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-22T21:00Z"
     },
     {
@@ -766,12 +766,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 2
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-23T00:00Z"
     },
     {
@@ -784,13 +784,85 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
+          "home": 1,
+          "away": 2
+        },
+        "penalties": null
+      },
+      "status": "FINISHED",
+      "utcDate": "2026-06-23T03:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Portugal"
+      },
+      "awayTeam": {
+        "name": "Uzbekistan"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
           "home": null,
           "away": null
         },
         "penalties": null
       },
       "status": "SCHEDULED",
-      "utcDate": "2026-06-23T03:00Z"
+      "utcDate": "2026-06-23T17:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "England"
+      },
+      "awayTeam": {
+        "name": "Ghana"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-23T20:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Panama"
+      },
+      "awayTeam": {
+        "name": "Croatia"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-23T23:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Colombia"
+      },
+      "awayTeam": {
+        "name": "Congo DR"
+      },
+      "stage": "GROUP_STAGE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-24T02:00Z"
     }
   ]
 }
