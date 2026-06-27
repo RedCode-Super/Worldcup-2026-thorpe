@@ -2,11 +2,16 @@ name: Fetch World Cup Scores
 
 on:
   schedule:
-    # Once daily at 06:45 UTC = 07:45 BST. Off the top of the hour because
-    # GitHub most often delays/drops top-of-hour scheduled runs, and late
-    # enough that the 04:00 UTC (US west coast) kickoffs — which can run to
-    # ~06:15 with stoppage time — are guaranteed finished before we fetch.
-    - cron: "45 6 * * *"
+    # Four runs per day cover every WC 2026 kickoff window (all UTC):
+    #   06:45 — after 04:00 UTC (US west-coast) games finish (~06:15)
+    #   15:45 — after 13:00 UTC (morning ET) games finish (~15:10)
+    #   21:45 — after 19:00 UTC (afternoon ET) games finish (~21:15)
+    #   00:15 — after 22:00 UTC (evening ET) games finish (~00:10)
+    # Off-minute to avoid GitHub's top-of-hour queue congestion.
+    - cron: "45 6  * * *"
+    - cron: "45 15 * * *"
+    - cron: "45 21 * * *"
+    - cron: "15 0  * * *"
   workflow_dispatch:
 
 jobs:
