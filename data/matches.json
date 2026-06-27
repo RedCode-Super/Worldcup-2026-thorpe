@@ -1090,12 +1090,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": 1,
-          "away": 4
+          "home": null,
+          "away": null
         },
         "penalties": null
       },
-      "status": "FINISHED",
+      "status": "SCHEDULED",
       "utcDate": "2026-06-26T19:00Z"
     },
     {
@@ -1108,12 +1108,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": 5,
-          "away": 0
+          "home": null,
+          "away": null
         },
         "penalties": null
       },
-      "status": "FINISHED",
+      "status": "SCHEDULED",
       "utcDate": "2026-06-26T19:00Z"
     },
     {
@@ -1126,12 +1126,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": 0,
-          "away": 0
+          "home": null,
+          "away": null
         },
         "penalties": null
       },
-      "status": "FINISHED",
+      "status": "SCHEDULED",
       "utcDate": "2026-06-27T00:00Z"
     },
     {
@@ -1144,12 +1144,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": 0,
-          "away": 1
+          "home": null,
+          "away": null
         },
         "penalties": null
       },
-      "status": "FINISHED",
+      "status": "SCHEDULED",
       "utcDate": "2026-06-27T00:00Z"
     },
     {
@@ -1162,12 +1162,12 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": 1,
-          "away": 1
+          "home": null,
+          "away": null
         },
         "penalties": null
       },
-      "status": "FINISHED",
+      "status": "SCHEDULED",
       "utcDate": "2026-06-27T03:00Z"
     },
     {
@@ -1180,121 +1180,13 @@
       "stage": "GROUP_STAGE",
       "score": {
         "fullTime": {
-          "home": 1,
-          "away": 5
+          "home": null,
+          "away": null
         },
         "penalties": null
       },
-      "status": "FINISHED",
+      "status": "SCHEDULED",
       "utcDate": "2026-06-27T03:00Z"
-    },
-    {
-      "homeTeam": {
-        "name": "Croatia"
-      },
-      "awayTeam": {
-        "name": "Ghana"
-      },
-      "stage": "GROUP_STAGE",
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        },
-        "penalties": null
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-06-27T21:00Z"
-    },
-    {
-      "homeTeam": {
-        "name": "Panama"
-      },
-      "awayTeam": {
-        "name": "England"
-      },
-      "stage": "GROUP_STAGE",
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        },
-        "penalties": null
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-06-27T21:00Z"
-    },
-    {
-      "homeTeam": {
-        "name": "Colombia"
-      },
-      "awayTeam": {
-        "name": "Portugal"
-      },
-      "stage": "GROUP_STAGE",
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        },
-        "penalties": null
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-06-27T23:30Z"
-    },
-    {
-      "homeTeam": {
-        "name": "Congo DR"
-      },
-      "awayTeam": {
-        "name": "Uzbekistan"
-      },
-      "stage": "GROUP_STAGE",
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        },
-        "penalties": null
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-06-27T23:30Z"
-    },
-    {
-      "homeTeam": {
-        "name": "Algeria"
-      },
-      "awayTeam": {
-        "name": "Austria"
-      },
-      "stage": "GROUP_STAGE",
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        },
-        "penalties": null
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-06-28T02:00Z"
-    },
-    {
-      "homeTeam": {
-        "name": "Jordan"
-      },
-      "awayTeam": {
-        "name": "Argentina"
-      },
-      "stage": "GROUP_STAGE",
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        },
-        "penalties": null
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-06-28T02:00Z"
     }
   ]
 }
