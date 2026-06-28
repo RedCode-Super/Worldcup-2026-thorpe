@@ -1313,6 +1313,564 @@
       },
       "status": "SCHEDULED",
       "utcDate": "2026-06-28T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Brazil"
+      },
+      "awayTeam": {
+        "name": "Japan"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-29T17:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Germany"
+      },
+      "awayTeam": {
+        "name": "Paraguay"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-29T20:30Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Netherlands"
+      },
+      "awayTeam": {
+        "name": "Morocco"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-30T01:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Ivory Coast"
+      },
+      "awayTeam": {
+        "name": "Norway"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-30T17:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "France"
+      },
+      "awayTeam": {
+        "name": "Sweden"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-06-30T21:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Mexico"
+      },
+      "awayTeam": {
+        "name": "Ecuador"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-01T01:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "England"
+      },
+      "awayTeam": {
+        "name": "Congo DR"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-01T16:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Belgium"
+      },
+      "awayTeam": {
+        "name": "Senegal"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-01T20:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "United States"
+      },
+      "awayTeam": {
+        "name": "Bosnia-Herzegovina"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-02T00:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Spain"
+      },
+      "awayTeam": {
+        "name": "Austria"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-02T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Portugal"
+      },
+      "awayTeam": {
+        "name": "Croatia"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-02T23:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Switzerland"
+      },
+      "awayTeam": {
+        "name": "Algeria"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-03T03:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Australia"
+      },
+      "awayTeam": {
+        "name": "Egypt"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-03T18:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Argentina"
+      },
+      "awayTeam": {
+        "name": "Cape Verde"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-03T22:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Colombia"
+      },
+      "awayTeam": {
+        "name": "Ghana"
+      },
+      "stage": "ROUND_OF_32",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-04T01:30Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 32 1 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 32 3 Winner"
+      },
+      "stage": "LAST_16",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-04T17:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 32 2 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 32 5 Winner"
+      },
+      "stage": "LAST_16",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-04T21:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 32 4 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 32 6 Winner"
+      },
+      "stage": "LAST_16",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-05T20:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 32 7 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 32 8 Winner"
+      },
+      "stage": "LAST_16",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-06T00:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 32 11 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 32 12 Winner"
+      },
+      "stage": "LAST_16",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-06T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 32 9 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 32 10 Winner"
+      },
+      "stage": "LAST_16",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-07T00:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 32 14 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 32 16 Winner"
+      },
+      "stage": "LAST_16",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-07T16:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 32 13 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 32 15 Winner"
+      },
+      "stage": "LAST_16",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-07T20:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 16 1 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 16 2 Winner"
+      },
+      "stage": "QUARTER_FINALS",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-09T20:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 16 5 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 16 6 Winner"
+      },
+      "stage": "QUARTER_FINALS",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-10T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 16 3 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 16 4 Winner"
+      },
+      "stage": "QUARTER_FINALS",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-11T21:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Round of 16 7 Winner"
+      },
+      "awayTeam": {
+        "name": "Round of 16 8 Winner"
+      },
+      "stage": "QUARTER_FINALS",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-12T01:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Quarterfinal 1 Winner"
+      },
+      "awayTeam": {
+        "name": "Quarterfinal 2 Winner"
+      },
+      "stage": "SEMI_FINALS",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-14T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Quarterfinal 3 Winner"
+      },
+      "awayTeam": {
+        "name": "Quarterfinal 4 Winner"
+      },
+      "stage": "SEMI_FINALS",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-15T19:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Semifinal 1 Loser"
+      },
+      "awayTeam": {
+        "name": "Semifinal 2 Loser"
+      },
+      "stage": "THIRD_PLACE",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-18T21:00Z"
+    },
+    {
+      "homeTeam": {
+        "name": "Semifinal 1 Winner"
+      },
+      "awayTeam": {
+        "name": "Semifinal 2 Winner"
+      },
+      "stage": "FINAL",
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "penalties": null
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-07-19T19:00Z"
     }
   ]
 }

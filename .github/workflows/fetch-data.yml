@@ -28,9 +28,8 @@ jobs:
 
       - name: Fetch scores from ESPN
         run: |
-          TODAY=$(date -u +%Y%m%d)
           HTTP_STATUS=$(curl -s -o /tmp/espn_raw.json -w "%{http_code}" \
-            "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?limit=200&dates=20260611-${TODAY}")
+            "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?limit=200&dates=20260611-20260720")
 
           if [ "$HTTP_STATUS" != "200" ]; then
             echo "ESPN API returned HTTP $HTTP_STATUS — skipping update"
