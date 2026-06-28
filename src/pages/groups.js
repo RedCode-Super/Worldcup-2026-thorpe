@@ -36,8 +36,8 @@ function renderGroup(group, matches) {
         <td>${entry.w}</td>
         <td>${entry.d}</td>
         <td>${entry.l}</td>
-        <td>${entry.gf}</td>
-        <td>${entry.ga}</td>
+        <td class="col-gf">${entry.gf}</td>
+        <td class="col-ga">${entry.ga}</td>
         <td>${gd > 0 ? "+" : ""}${gd}</td>
         <td class="pts">${entry.pts}</td>
       </tr>`;
@@ -51,7 +51,7 @@ function renderGroup(group, matches) {
           <tr>
             <th>Team</th>
             <th>P</th><th>W</th><th>D</th><th>L</th>
-            <th>GF</th><th>GA</th><th>GD</th><th>Pts</th>
+            <th class="col-gf">GF</th><th class="col-ga">GA</th><th>GD</th><th>Pts</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>

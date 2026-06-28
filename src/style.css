@@ -268,6 +268,40 @@ main { flex: 1; max-width: 900px; width: 100%; margin: 0 auto; padding: 20px 16p
 .bracket-team.tbd { color: var(--text-dim); font-style: italic; }
 .bracket-score { margin-left: auto; font-weight: 700; min-width: 18px; text-align: right; }
 
+/* ─── Bracket tree view ────────────────────────────────────── */
+/* Each round column has flex:1 items so spacing auto-aligns pairs to parents. */
+.bt-bracket {
+  display: flex; gap: 0; min-width: 860px;
+  /* Height = 16 R32 slots × 70px min each */
+  min-height: calc(16 * 70px);
+}
+.bt-round {
+  display: flex; flex-direction: column;
+  flex: 1; min-width: 160px;
+}
+.bt-round .round-label { flex: 0 0 auto; }
+.bt-slots {
+  display: flex; flex-direction: column; flex: 1;
+}
+.bt-slot {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center; padding: 2px 4px;
+  position: relative;
+}
+/* Right-side connector line: joins a pair of slots to their parent */
+.bt-slot:nth-child(odd)::after,
+.bt-slot:nth-child(even)::after {
+  content: ""; position: absolute;
+  right: 0; width: 8px;
+  border-right: 2px solid var(--border);
+  pointer-events: none;
+}
+.bt-slot:nth-child(odd)::after  { top: 50%; height: 50%; border-top: 2px solid var(--border); }
+.bt-slot:nth-child(even)::after { bottom: 50%; height: 50%; border-bottom: 2px solid var(--border); }
+/* Last round (Final) has no connector */
+.bt-round:last-child .bt-slot::after { display: none; }
+.bt-slot .bracket-match { margin: 0; }
+
 /* ─── Sweepstake ───────────────────────────────────────────── */
 .sweep-grid {
   display: grid;
@@ -393,4 +427,11 @@ main { flex: 1; max-width: 900px; width: 100%; margin: 0 auto; padding: 20px 16p
   nav button { padding: 8px 11px; font-size: .8rem; }
   .fixture-card { padding: 10px; }
   .standings-table { font-size: .78rem; }
+  /* Hide GF/GA on very small screens to prevent Pts being cut off */
+  .standings-table .col-gf,
+  .standings-table .col-ga { display: none; }
 }
+
+/* Make the standings card horizontally scrollable rather than clipping */
+.card { overflow-x: auto; }
+.standings-table { min-width: 340px; }

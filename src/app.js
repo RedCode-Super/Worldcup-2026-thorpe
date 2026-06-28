@@ -63,7 +63,7 @@ function errorBannerHtml(err) {
     ? "Match data hasn't been published yet — the score-fetch workflow may not have run."
     : "Couldn't load live scores — showing the schedule without results. Try ↻ Refresh.";
   return `
-    <div class="error-banner">
+    <div class="error-banner1">
       <span>⚠️ ${friendly}</span>
       <span class="error-detail">${esc(err)}</span>
     </div>`;
@@ -89,7 +89,7 @@ function renderCurrentTab() {
       renderTvPage(matches, mainEl);
       break;
     case "knockout":
-      mainEl.innerHTML = renderKnockoutPage(matches);
+      renderKnockoutPage(matches, mainEl);
       break;
   }
 }
