@@ -320,6 +320,7 @@ main { flex: 1; max-width: 900px; width: 100%; margin: 0 auto; padding: 20px 16p
 
 /* ─── TV Guide ─────────────────────────────────────────────── */
 .tv-controls { margin-bottom: 16px; }
+.tv-controls-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .tv-select {
   background: var(--surface); color: var(--text);
   border: 1px solid var(--border); border-radius: 8px;

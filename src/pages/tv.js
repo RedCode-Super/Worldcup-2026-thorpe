@@ -103,11 +103,16 @@ export function renderTvPage(matches, container) {
       : [...fixtures]
   ).sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
 
+  const hasTodaySection = filtered.some(f => isTodayKey(localDateKey(f.utcDate)));
+
   const controls = `
     <div class="tv-controls">
-      <select id="tvFilterSelect" class="tv-select">
-        ${buildSelectOptions()}
-      </select>
+      <div class="tv-controls-row">
+        <select id="tvFilterSelect" class="tv-select">
+          ${buildSelectOptions()}
+        </select>
+        ${hasTodaySection ? `<button class="filter-btn active" id="tvJumpToday">Jump to today</button>` : ""}
+      </div>
     </div>`;
 
   let body = "";
@@ -132,6 +137,9 @@ export function renderTvPage(matches, container) {
     container.querySelector("#tvFilterSelect")?.addEventListener("change", e => {
       _selectedFilter = e.target.value;
       renderTvPage(matches, container);
+    });
+    container.querySelector("#tvJumpToday")?.addEventListener("click", () => {
+      container.querySelector(".tv-day-today")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
 }
