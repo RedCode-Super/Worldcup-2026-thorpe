@@ -166,7 +166,7 @@ function groupByLocalDate(matches) {
 }
 
 export function renderFixturesPage(matches, container) {
-  const source  = matches?.length ? matches : STATIC_FIXTURES;
+  const source  = (matches?.length ? matches : STATIC_FIXTURES).filter(m => !m.placeholder);
   const filtered = applyFilters(source);
   const byDate  = groupByLocalDate(filtered);
 

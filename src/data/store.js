@@ -36,7 +36,14 @@ function mergeFixtures(espnMatches) {
   for (const lm of liveByKey.values()) {
     const home = normaliseTeamName(lm.homeTeam?.name ?? "");
     const away = normaliseTeamName(lm.awayTeam?.name ?? "");
-    if (realTeams.has(home) && realTeams.has(away)) merged.push(lm);
+    if (realTeams.has(home) && realTeams.has(away)) {
+      merged.push(lm); // knockout match with real teams (round in progress)
+    } else if (lm.stage && lm.stage !== "GROUP_STAGE") {
+      // Placeholder knockout slot (teams not yet decided). Kept so the
+      // bracket tree can show connections and derive its structure from
+      // ESPN's seeding data. Marked so fixtures page can hide them.
+      merged.push({ ...lm, placeholder: true });
+    }
   }
   return merged;
 }
@@ -49,8 +56,8 @@ const _listeners = new Set();
 
 // Bump the version segment whenever the cached data shape changes, so a
 // deploy never feeds old-shape cache to new code.
-const CACHE_KEY = "wc_matches_v2";
-const OLD_CACHE_KEYS = ["wc_matches", "wc_standings"];
+const CACHE_KEY = "wc_matches_v3";
+const OLD_CACHE_KEYS = ["wc_matches", "wc_standings", "wc_matches_v2"];
 
 function notify() {
   _listeners.forEach(fn => fn({ matches: _matches, error: _error, loading: _loading, fetchedAt: _fetchedAt }));
