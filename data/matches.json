@@ -1306,12 +1306,12 @@
       "stage": "ROUND_OF_32",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-28T19:00Z"
     },
     {
@@ -1586,7 +1586,7 @@
     },
     {
       "homeTeam": {
-        "name": "Round of 32 1 Winner"
+        "name": "Canada"
       },
       "awayTeam": {
         "name": "Round of 32 3 Winner"
