@@ -110,7 +110,7 @@ function renderTeamRow(rawName, matchWinner, score) {
       ${isTBD
         ? "TBD"
         : `<span>${flag(name)}</span><span>${esc(name)}</span>${owner ? `<span class="owner-tag" style="font-size:.65rem">${esc(owner)}</span>` : ""}`}
-      <span class="bracket-score">${score !== null && score !== undefined ? score : ""}</span>
+      <span class="bracket-score">${Number(score) >= 0 ? Number(score) : ""}</span>
     </div>`;
 }
 
@@ -139,7 +139,7 @@ function renderListView(maps) {
     if (!entries.length) return "";
     return `
       <div class="bracket-round">
-        <div class="round-label">${STAGE_LABEL[stage]}</div>
+        <div class="round-label">${esc(STAGE_LABEL[stage] ?? stage)}</div>
         <div class="bracket-col">
           ${entries.map(m => renderMatchCard(m)).join("")}
         </div>
@@ -167,7 +167,7 @@ function renderBracketView(maps) {
     if (!nodes?.length) return "";
     return `
       <div class="bt-round">
-        <div class="round-label">${stage === "ROUND_OF_32" ? "R32" : STAGE_LABEL[stage]}</div>
+        <div class="round-label">${esc(stage === "ROUND_OF_32" ? "R32" : (STAGE_LABEL[stage] ?? stage))}</div>
         <div class="bt-slots">
           ${nodes.map(n => `<div class="bt-slot">${renderMatchCard(n.match)}</div>`).join("")}
         </div>

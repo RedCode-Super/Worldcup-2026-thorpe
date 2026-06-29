@@ -61,7 +61,7 @@ function renderScore(match) {
   if (match.status === "IN_PLAY" || match.status === "PAUSED") {
     return `${match.score?.currentScore?.home ?? s.home ?? "–"} – ${match.score?.currentScore?.away ?? s.away ?? "–"}`;
   }
-  if (match.status === "FINISHED") return `${s.home ?? "–"} – ${s.away ?? "–"}`;
+  if (match.status === "FINISHED") return `${Number(s.home) >= 0 ? Number(s.home) : "–"} – ${Number(s.away) >= 0 ? Number(s.away) : "–"}`;
   return "vs";
 }
 
