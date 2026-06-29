@@ -108,21 +108,28 @@ function buildSelectOptions() {
     </optgroup>`;
 }
 
+const PLACEHOLDER_RE = /Winner|Loser/i;
+function isTBD(rawName) { return !rawName || PLACEHOLDER_RE.test(rawName); }
+
 function renderFixtureCard(match) {
-  const home = normaliseTeamName(match.homeTeam?.name ?? "TBD");
-  const away = normaliseTeamName(match.awayTeam?.name ?? "TBD");
+  const rawHome = match.homeTeam?.name ?? "";
+  const rawAway = match.awayTeam?.name ?? "";
+  const homeTBD = isTBD(rawHome);
+  const awayTBD = isTBD(rawAway);
+  const home = homeTBD ? "TBD" : normaliseTeamName(rawHome);
+  const away = awayTBD ? "TBD" : normaliseTeamName(rawAway);
   const hlTeams = getSelectedTeams();
-  const homeHL = hlTeams?.includes(home) ? " team-hl" : "";
-  const awayHL = hlTeams?.includes(away) ? " team-hl" : "";
-  const homeOwner = findPlayerForTeam(home);
-  const awayOwner = findPlayerForTeam(away);
+  const homeHL = (!homeTBD && hlTeams?.includes(home)) ? " team-hl" : "";
+  const awayHL = (!awayTBD && hlTeams?.includes(away)) ? " team-hl" : "";
+  const homeOwner = homeTBD ? null : findPlayerForTeam(home);
+  const awayOwner = awayTBD ? null : findPlayerForTeam(away);
   const roundLabel = (match.stage ?? "").replace(/_/g, " ").toLowerCase()
     .replace(/\b\w/g, c => c.toUpperCase());
 
   return `
     <div class="${cardClass(match)}">
       <div class="fixture-team home${homeHL}">
-        <span class="team-flag">${flag(home)}</span>
+        ${homeTBD ? "" : `<span class="team-flag">${flag(home)}</span>`}
         <span>${esc(home)}</span>
       </div>
       <div>
@@ -131,7 +138,7 @@ function renderFixtureCard(match) {
       </div>
       <div class="fixture-team away${awayHL}">
         <span>${esc(away)}</span>
-        <span class="team-flag">${flag(away)}</span>
+        ${awayTBD ? "" : `<span class="team-flag">${flag(away)}</span>`}
       </div>
       <div class="fixture-meta">
         <span>${esc(roundLabel)}</span>
@@ -166,9 +173,7 @@ function groupByLocalDate(matches) {
 }
 
 export function renderFixturesPage(matches, container) {
-  const isUnknown = name => !name || /Winner|Loser/i.test(name);
-  const source  = (matches?.length ? matches : STATIC_FIXTURES)
-    .filter(m => !m.placeholder || !isUnknown(m.homeTeam?.name) || !isUnknown(m.awayTeam?.name));
+  const source  = matches?.length ? matches : STATIC_FIXTURES;
   const filtered = applyFilters(source);
   const byDate  = groupByLocalDate(filtered);
 

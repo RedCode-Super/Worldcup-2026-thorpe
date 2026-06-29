@@ -71,20 +71,27 @@ function groupByLocalDate(fixtures) {
   return map;
 }
 
+const PLACEHOLDER_RE = /Winner|Loser/i;
+function isTBD(rawName) { return !rawName || PLACEHOLDER_RE.test(rawName); }
+
 function renderRow(f) {
-  const home = normaliseTeamName(f.homeTeam.name);
-  const away = normaliseTeamName(f.awayTeam.name);
+  const rawHome = f.homeTeam?.name ?? "";
+  const rawAway = f.awayTeam?.name ?? "";
+  const homeTBD = isTBD(rawHome);
+  const awayTBD = isTBD(rawAway);
+  const home = homeTBD ? "TBD" : normaliseTeamName(rawHome);
+  const away = awayTBD ? "TBD" : normaliseTeamName(rawAway);
   const hlTeams = getSelectedTeams();
-  const homeHL = hlTeams?.includes(home) ? " tv-hl" : "";
-  const awayHL = hlTeams?.includes(away) ? " tv-hl" : "";
+  const homeHL = (!homeTBD && hlTeams?.includes(home)) ? " tv-hl" : "";
+  const awayHL = (!awayTBD && hlTeams?.includes(away)) ? " tv-hl" : "";
 
   return `
     <div class="tv-row">
       <span class="tv-time">${formatTime(f.utcDate)}</span>
       <span class="tv-teams">
-        <span class="tv-team${homeHL}">${flag(home)} ${esc(home)}</span>
+        <span class="tv-team${homeHL}">${homeTBD ? "" : flag(home)} ${esc(home)}</span>
         <span class="tv-vs">vs</span>
-        <span class="tv-team${awayHL}">${flag(away)} ${esc(away)}</span>
+        <span class="tv-team${awayHL}">${awayTBD ? "" : flag(away)} ${esc(away)}</span>
       </span>
       ${f.channel ? `<span class="tv-ch ${channelClass(f.channel)}">${esc(f.channel)}</span>` : ""}
     </div>`;

@@ -56,8 +56,8 @@ const _listeners = new Set();
 
 // Bump the version segment whenever the cached data shape changes, so a
 // deploy never feeds old-shape cache to new code.
-const CACHE_KEY = "wc_matches_v3";
-const OLD_CACHE_KEYS = ["wc_matches", "wc_standings", "wc_matches_v2"];
+const CACHE_KEY = "wc_matches_v4";
+const OLD_CACHE_KEYS = ["wc_matches", "wc_standings", "wc_matches_v2", "wc_matches_v3"];
 
 function notify() {
   _listeners.forEach(fn => fn({ matches: _matches, error: _error, loading: _loading, fetchedAt: _fetchedAt }));
