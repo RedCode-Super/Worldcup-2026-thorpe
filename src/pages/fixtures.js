@@ -166,7 +166,9 @@ function groupByLocalDate(matches) {
 }
 
 export function renderFixturesPage(matches, container) {
-  const source  = (matches?.length ? matches : STATIC_FIXTURES).filter(m => !m.placeholder);
+  const isUnknown = name => !name || /Winner|Loser/i.test(name);
+  const source  = (matches?.length ? matches : STATIC_FIXTURES)
+    .filter(m => !m.placeholder || !isUnknown(m.homeTeam?.name) || !isUnknown(m.awayTeam?.name));
   const filtered = applyFilters(source);
   const byDate  = groupByLocalDate(filtered);
 
