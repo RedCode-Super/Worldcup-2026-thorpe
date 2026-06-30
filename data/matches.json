@@ -1342,12 +1342,15 @@
       "stage": "ROUND_OF_32",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
-        "penalties": null
+        "penalties": {
+          "home": 3,
+          "away": 4
+        }
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-29T20:30Z"
     },
     {
@@ -1360,12 +1363,15 @@
       "stage": "ROUND_OF_32",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
-        "penalties": null
+        "penalties": {
+          "home": 2,
+          "away": 3
+        }
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-06-30T01:00Z"
     },
     {
@@ -1589,7 +1595,7 @@
         "name": "Canada"
       },
       "awayTeam": {
-        "name": "Round of 32 3 Winner"
+        "name": "Morocco"
       },
       "stage": "LAST_16",
       "score": {
@@ -1604,7 +1610,7 @@
     },
     {
       "homeTeam": {
-        "name": "Round of 32 2 Winner"
+        "name": "Paraguay"
       },
       "awayTeam": {
         "name": "Round of 32 5 Winner"
