@@ -1438,12 +1438,12 @@
       "stage": "ROUND_OF_32",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-01T16:00Z"
     },
     {
@@ -1456,12 +1456,12 @@
       "stage": "ROUND_OF_32",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 2
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-01T20:00Z"
     },
     {
@@ -1649,7 +1649,7 @@
         "name": "Mexico"
       },
       "awayTeam": {
-        "name": "Round of 32 8 Winner"
+        "name": "England"
       },
       "stage": "LAST_16",
       "score": {
