@@ -1474,12 +1474,12 @@
       "stage": "ROUND_OF_32",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 0
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-02T00:00Z"
     },
     {
@@ -1682,10 +1682,10 @@
     },
     {
       "homeTeam": {
-        "name": "Round of 32 9 Winner"
+        "name": "United States"
       },
       "awayTeam": {
-        "name": "Round of 32 10 Winner"
+        "name": "Belgium"
       },
       "stage": "LAST_16",
       "score": {
