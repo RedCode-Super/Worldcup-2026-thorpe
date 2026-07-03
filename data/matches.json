@@ -1546,12 +1546,15 @@
       "stage": "ROUND_OF_32",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
-        "penalties": null
+        "penalties": {
+          "home": 2,
+          "away": 4
+        }
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-03T18:00Z"
     },
     {
@@ -1703,7 +1706,7 @@
         "name": "Round of 32 14 Winner"
       },
       "awayTeam": {
-        "name": "Round of 32 16 Winner"
+        "name": "Egypt"
       },
       "stage": "LAST_16",
       "score": {
