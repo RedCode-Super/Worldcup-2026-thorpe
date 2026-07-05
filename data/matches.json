@@ -1621,12 +1621,12 @@
       "stage": "LAST_16",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-04T21:00Z"
     },
     {
@@ -1739,7 +1739,7 @@
     },
     {
       "homeTeam": {
-        "name": "Round of 16 1 Winner"
+        "name": "France"
       },
       "awayTeam": {
         "name": "Morocco"
