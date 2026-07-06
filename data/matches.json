@@ -1675,12 +1675,12 @@
       "stage": "LAST_16",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-06T19:00Z"
     },
     {
@@ -1757,7 +1757,7 @@
     },
     {
       "homeTeam": {
-        "name": "Round of 16 5 Winner"
+        "name": "Spain"
       },
       "awayTeam": {
         "name": "Round of 16 6 Winner"
