@@ -1657,13 +1657,13 @@
       "stage": "LAST_16",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 3
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-07-06T00:00Z"
+      "status": "FINISHED",
+      "utcDate": "2026-07-06T01:00Z"
     },
     {
       "homeTeam": {
@@ -1778,7 +1778,7 @@
         "name": "Norway"
       },
       "awayTeam": {
-        "name": "Round of 16 4 Winner"
+        "name": "England"
       },
       "stage": "QUARTER_FINALS",
       "score": {
