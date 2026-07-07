@@ -1711,12 +1711,12 @@
       "stage": "LAST_16",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 2
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-07T16:00Z"
     },
     {
@@ -1732,7 +1732,10 @@
           "home": null,
           "away": null
         },
-        "penalties": null
+        "penalties": {
+          "home": 1,
+          "away": 1
+        }
       },
       "status": "SCHEDULED",
       "utcDate": "2026-07-07T20:00Z"
@@ -1793,7 +1796,7 @@
     },
     {
       "homeTeam": {
-        "name": "Round of 16 7 Winner"
+        "name": "Argentina"
       },
       "awayTeam": {
         "name": "Round of 16 8 Winner"
