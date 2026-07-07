@@ -1693,12 +1693,12 @@
       "stage": "LAST_16",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 4
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-07T00:00Z"
     },
     {
@@ -1760,7 +1760,7 @@
         "name": "Spain"
       },
       "awayTeam": {
-        "name": "Round of 16 6 Winner"
+        "name": "Belgium"
       },
       "stage": "QUARTER_FINALS",
       "score": {
