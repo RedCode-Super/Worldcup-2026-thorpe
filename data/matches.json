@@ -1729,15 +1729,15 @@
       "stage": "LAST_16",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "penalties": {
-          "home": 1,
-          "away": 1
+          "home": 4,
+          "away": 3
         }
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-07T20:00Z"
     },
     {
@@ -1799,7 +1799,7 @@
         "name": "Argentina"
       },
       "awayTeam": {
-        "name": "Round of 16 8 Winner"
+        "name": "Switzerland"
       },
       "stage": "QUARTER_FINALS",
       "score": {
