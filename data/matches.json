@@ -1750,12 +1750,12 @@
       "stage": "QUARTER_FINALS",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 0
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-09T20:00Z"
     },
     {
@@ -1814,7 +1814,7 @@
     },
     {
       "homeTeam": {
-        "name": "Quarterfinal 1 Winner"
+        "name": "France"
       },
       "awayTeam": {
         "name": "Quarterfinal 2 Winner"
