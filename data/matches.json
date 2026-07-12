@@ -1786,12 +1786,12 @@
       "stage": "QUARTER_FINALS",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-11T21:00Z"
     },
     {
@@ -1804,12 +1804,12 @@
       "stage": "QUARTER_FINALS",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 1
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-12T01:00Z"
     },
     {
@@ -1832,10 +1832,10 @@
     },
     {
       "homeTeam": {
-        "name": "Quarterfinal 3 Winner"
+        "name": "England"
       },
       "awayTeam": {
-        "name": "Quarterfinal 4 Winner"
+        "name": "Argentina"
       },
       "stage": "SEMI_FINALS",
       "score": {
