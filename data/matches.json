@@ -1822,12 +1822,12 @@
       "stage": "SEMI_FINALS",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 2
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-14T19:00Z"
     },
     {
@@ -1850,7 +1850,7 @@
     },
     {
       "homeTeam": {
-        "name": "Semifinal 1 Loser"
+        "name": "France"
       },
       "awayTeam": {
         "name": "Semifinal 2 Loser"
@@ -1868,7 +1868,7 @@
     },
     {
       "homeTeam": {
-        "name": "Semifinal 1 Winner"
+        "name": "Spain"
       },
       "awayTeam": {
         "name": "Semifinal 2 Winner"
