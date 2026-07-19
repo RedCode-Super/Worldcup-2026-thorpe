@@ -1858,12 +1858,12 @@
       "stage": "THIRD_PLACE",
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 4,
+          "away": 6
         },
         "penalties": null
       },
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "utcDate": "2026-07-18T21:00Z"
     },
     {
